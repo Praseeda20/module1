@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="price" >
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+			</xs:restriction>
+		</xs:simpleType> 
+	</xs:element>
+	
+	<xs:element name="genre" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[A-Z][A-Za-z\s]{1,24}" />
+				<xs:enumeration value="Fiction" />
+				<xs:enumeration value="IT" />
+				<xs:enumeration value="Testing" />
+				<xs:enumeration value="Programming" />
+			</xs:restriction>
+		</xs:simpleType> 
+	</xs:element>
+	
+	<xs:element name="author" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[A-Z][A-Za-z\s]{1,24}" />
+			</xs:restriction>
+		</xs:simpleType> 
+	</xs:element>
+	
+	<xs:element name="title" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[A-Z][A-Za-z\s]{1,24}" />
+			</xs:restriction>
+		</xs:simpleType> 
+	</xs:element>
+	
+	<xs:element name="book">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="title" />
+				<xs:element ref="author" />
+				<xs:element ref="genre" />
+				<xs:element ref="price" />
+			</xs:all>
+			<xs:attribute name="book_code" type="xs:integer" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="Books">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="book" minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

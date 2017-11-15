@@ -1,0 +1,59 @@
+/*********************************************************************
+* File : DefensiveProgramming.txt
+* Author Name : Himanshu Kemwal
+* Desc : Program to implement good practices
+* Version : 1.0
+* Last Modified Date : 3-Nov-2017
+*********************************************************************/
+
+BEGIN
+	DECLARE CONSTANT taxRate TO .56
+	DECLARE price AS REAL
+	DECLARE totCost AS REAL
+	price=getPrice()
+	totCost=calcTotCost(price)
+	dispTotCost(totCost)
+	EXCEPTION
+		WHEN invalidPrice THEN 
+			PRINT "Enter price in digits only"
+END
+
+/*********************************************************************
+* Module Name : getPrice()
+* Return Type : REAL
+* Author : Himanshu Kemwal
+* Creation Date : 3-Nov-2017
+* Description : Get the product price
+*********************************************************************/
+
+SUB getPrice()
+	Print "Enter price of your product"
+	Accept price
+	RETURN price
+	RAISE invalidPrice "Price is invalid"
+END SUB
+
+/*********************************************************************
+* Module Name : calcTotCost()
+* Return Type : REAL
+* Author : Himanshu Kemwal
+* Creation Date : 3-Nov-2017
+* Description : Calculate the total cost of the product
+*********************************************************************/
+
+SUB calcTotCost()
+	CALCULATE totCost=price*taxRate
+	RETURN totCost
+END SUB
+
+/*********************************************************************
+* Module Name : dispTotCost()
+* Input Parameters : totCost
+* Author : Himanshu Kemwal
+* Creation Date : 3-Nov-2017
+* Description : Display the total price of the product
+*********************************************************************/
+
+SUB dispTotCost(totCost)
+	Print "Total price of product is": totCost
+END SUB

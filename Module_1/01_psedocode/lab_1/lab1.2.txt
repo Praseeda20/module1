@@ -1,0 +1,42 @@
+/*
+1.2 Organization employees are recognized with different tags based on their
+experience.
+Years of Experience Tag Color
+0 - <3 Blue
+3 - <5 Grey
+5 - <10 Yellow
+>10 Red
+Write pseudo code to accept the experience and display their tag Color.
+*/
+
+/*********************************************************************
+* File : lab1.2.txt
+* Author Name : Praseeda
+* Desc : Accept the experience and display tag Color
+* Version : 1.0
+* Last Modified Date : 2-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+//declare variables to be used
+	DECLARE experience AS INTEGER
+	DECLARE color AS STRING
+	INITIALIZE experience TO 0
+
+//Accept the input as experience	
+	PROMPT "Enter your experience " AND STORE IN experience
+//comparison of experience with colors to find out the color tag
+	IF(experience<3) THEN
+		color=Blue
+	ELSE IF(experience>=3 AND experience<5) THEN
+		color=Grey
+	ELSE IF(experience>=5 AND experience<10) THEN
+		color=Yellow
+	ELSE
+		color=Red
+	END IF
+//Displays the color tag as per experience
+	PRINT "Your Color Tag: " +color
+END
+	 

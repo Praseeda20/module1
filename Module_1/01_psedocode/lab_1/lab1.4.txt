@@ -1,0 +1,35 @@
+/*
+1.4 Write a pseudo code to accept a number and check whether a given number is an
+Armstrong number. For example, 371 is an Armstrong number since (3*3*3) +
+(7*7*7) + (1*1*1) = 371.
+*/
+
+/*********************************************************************
+* File : lab1.4.txt
+* Author Name : Praseeda
+* Desc : Check whether Armstrong number or not
+* Version : 1.0
+* Last Modified Date : 2-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE num AS INTEGER
+	DECLARE rem AS INTEGER
+	DECLARE check AS INTEGER
+	DECLARE sum AS INTEGER
+	INITIALIZE sum TO 0
+	INITIALIZE check TO num
+	
+	PROMPT "Enter the number " AND STORE IN num
+	WHILE(check!=0)
+		rem= check % 10
+		check= check / 10
+		sum= sum + rem * rem * rem
+	END WHILE
+	IF(sum == num) THEN
+		PRINT "The given number is an Armstrong Number " 
+	ELSE
+		PRINT "The given number is not an Armstrong Number " 
+	END IF
+END

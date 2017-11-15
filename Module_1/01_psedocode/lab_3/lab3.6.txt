@@ -1,0 +1,112 @@
+/*
+3.6 Write a Pseudocode to accept 5 numbers in an array and sort the array if array is
+not sorted and search for a number in the array using binary search. Implement sorting
+and searching logic in module.
+*/
+
+/*********************************************************************
+* File : lab3.6.txt
+* Author Name : Praseeda
+* Desc : Sort elements of array and search for an element using binary search
+* Version : 1.0
+* Last Modified Date : 4-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+DECLARE numbers[5] AS INTEGER ARRAY
+DECLARE num AS INTEGER
+DECLARE swap AS INTEGER
+DECLARE left AS INTEGER
+	AND INITIALIZE TO 0
+DECLARE right AS INTEGER
+	AND INITIALIZE TO 4
+DECLARE pos AS INTEGER
+DECLARE flag AS INTEGER
+	
+BEGIN
+	acceptvalues()
+	sortArray(numbers, swap)
+	searchNum(numbers, num, left, right)
+	displayResult(pos, flag, num)
+END
+
+/*********************************************************************
+* Module Name : acceptvalues()
+* Input Parameters : numbers, num
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Accepts the Values 
+*********************************************************************/	
+	
+SUB acceptvalues()
+	PRINT "Enter the elements of array:" 
+	FOR index 0 TO 4
+		ACCEPT numbers[index]
+	END FOR
+	
+	PROMPT "Enter the number to be searched:" AND STORE IN num
+END SUB
+
+/*********************************************************************
+* Module Name : sortArray()
+* Input Parameters : numbers, swap
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description :sorting the values 
+*********************************************************************/	
+	
+SUB sortArray()
+	FOR index1 0 TO 4
+		FOR index2 index1+1 TO 4
+			IF(numbers[index1]>numbers[index2]) THEN
+				swap = numbers[index1]
+				numbers[index1] = numbers[index2]
+				numbers[index2] = swap
+			END IF
+		END FOR
+	END FOR
+END SUB
+
+/*********************************************************************
+* Module Name : searchNum()
+* Input Parameters : numbers, num, left, right
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : searching the given value
+*********************************************************************/	
+	
+SUB searchNum()
+	mid= (left + right)/2
+	IF( num == numbers[mid])
+		pos=mid
+		flag=1
+	ELSE IF (num > numbers[mid])
+		left=mid+1
+	ELSE IF (num <numbers[mid])
+		right=mid-1
+	searchNum()
+END SUB
+
+/*********************************************************************
+* Module Name : displayResult()
+* Input Parameters : pos, flag, num
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : displaying the position
+*********************************************************************/	
+	
+SUB displayResult()
+	IF(flag==1)
+		PRINT "The number "+num
+		PRINT "is in the array at position: "+pos
+	END IF
+END SUB
+
+	
+		
+	
+	

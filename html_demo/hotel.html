@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> A hotel bill</title>
+	</head>
+	<body>
+		<form>
+			<table>
+				<tr><td><label for="txtgnm"> Guest Name:</label></td>
+					<td><input type="text" id="txtgnm" /> </td>
+				</tr>
+				<tr><td><label for="txtsty"> No. of Days:</label></td>
+					<td><input type="number" id="txtsty" /> </td>
+				</tr>
+				<tr><td><label for="txtfb"> Food Bill:</label></td>
+					<td><input type="decimal" id="txtfb" /> </td>
+				</tr>
+				<tr><td><label for="txtnet"> Net Bill:</label></td>
+					<td><input type="decimal" id="txtnet" /> </td>
+				</tr>
+				<tr><td><label for="txtadv"> Advance:</label></td>
+					<td><input type="decimal" id="txtadv" /> </td>
+				</tr>
+				<tr><td><label for="txtgst"> GST%:</label></td>
+					<td><input type="decimal" id="txtgst" /> </td>
+				</tr>
+				<tr><td><label for="txtmode"> Pay Mode:</label></td>
+					<td><select id="txtmode" > 
+							<option value="">---SELECT---</option>
+							<option value="cs">Cash</option>
+							<option value="cd">Card</option>
+							<option value="ol">Online</option>
+							<option value="ch">Cheque</option>
+							<option value="off">Office</option>
+						</select>
+					</td>
+				</tr>
+				<tr><td colspan="2">
+					<button type="button" onclick="getbill()">
+						Generate Bill
+					</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

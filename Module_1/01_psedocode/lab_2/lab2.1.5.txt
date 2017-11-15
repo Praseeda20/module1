@@ -1,0 +1,80 @@
+/*
+1.5 Write a pseudo code to convert a binary number to decimal. For an Example, if the
+given input is 00000100(binary number), then the output should be 4(Decimal
+number).
+*/
+
+/*********************************************************************
+* File : lab1.5.txt
+* Author Name : Praseeda
+* Desc : Convert a binary number to decimal
+* Version : 1.0
+* Last Modified Date : 3-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE binNum AS INTEGER
+	DECLARE decNum AS INTEGER
+	DECLARE rem AS INTEGER
+	DECLARE base AS INTEGER
+	DECLARE num AS INTEGER
+	
+	//Initialize the values
+	INITIALIZE decNum TO 0
+	INITIALIZE base TO 1
+	INITIALIZE num AS binNum
+	
+	binNum = acceptBinNum(binNum)
+	decNum=calcDecNum(binNum, decNum, base)
+	printValue(num, decNum)	
+END
+
+/*********************************************************************
+* Module Name : acceptBinNum()
+* Input Parameters : binNum
+* Return Type : INTEGER
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Accept the binary number
+*********************************************************************/	
+
+SUB acceptBinNum(binNum)	
+	PROMPT "Enter the Binary Number" 
+		AND STORE IN binNum
+	RETURN binNum
+END SUB
+
+/*********************************************************************
+* Module Name : calcValues()
+* Input Parameters : lstMnthReading, crntMnthReading, FXD_CHRGE
+* Return Type : INTEGER
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Calculate Unit consumed and net amount
+*********************************************************************/	
+//calculates the decimal value
+SUB calcDecNum(binNum, decNum, base)		
+	WHILE(binNum!=0)
+		rem = binNum % 10
+		decNum = decNum + rem * base
+		base = base * 2
+		binNum = binNum / 10
+	END WHILE
+	RETURN decNum
+END SUB
+
+/*********************************************************************
+* Module Name : printValue()
+* Input Parameters : num, decNum
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : display the decimal value for the given binary number
+*********************************************************************/		
+
+SUB printValue(num, decNum)
+	PRINT "The Decimal value for the binary number: " +num
+	PRINT "is: " +decNum
+END SUB
+	

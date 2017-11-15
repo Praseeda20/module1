@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="bookschema.xsd">
+	<book book_code="2801">
+		<title>Last Wish</title>
+		<author>Stephen Joseph</author>
+		<genre>Fiction</genre>
+		<price>380</price>
+	</book>
+	
+	<book book_code="2801">
+		<title>Let Us C</title>
+		<author>Yashwant Kanetkar</author>
+		<genre>IT</genre>
+		<price>296</price>
+	</book>
+	
+	<book book_code="2801">
+		<title>Testing Fundamentals</title>
+		<author>KK Aggarwal</author>
+		<genre>Testing</genre>
+		<price>256</price>
+	</book>
+</Books>

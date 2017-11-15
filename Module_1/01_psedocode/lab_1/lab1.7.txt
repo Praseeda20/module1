@@ -1,0 +1,37 @@
+/*
+1.7 Modify the below Pseudocode to implement good programming practices. The
+below Pseudocode is used to calculate total price of a product including tax.
+BEGIN
+Print "Enter price of your product"
+Accept p
+tc=p*.56
+Print "Total price of product is": tc
+END
+Hint: .56 is the Tax rate.
+*/
+
+/*********************************************************************
+* File : lab1.7.txt
+* Author Name : Praseeda
+* Desc : Calculate total price of a product including tax
+* Version : 1.0
+* Last Modified Date : 2-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE price AS REAL
+	DECLARE totalPrice AS REAL
+	DECLARE CONSTANT TAX_RATE = 0.56 AS REAL
+	
+	//Accepts the price of product
+	PROMPT "Enter price of your Product" 
+		AND STORE IN price
+	
+	//Calculates the total price
+	CALCULATE totalPrice = price * TAX_RATE
+	
+	//Display the total price of product
+	PRINT "Total price of product is: " +totalPrice
+END
+	

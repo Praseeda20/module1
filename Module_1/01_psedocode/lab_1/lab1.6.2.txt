@@ -1,0 +1,53 @@
+/*
+1.6 Write a pseudo code to accept 10 numbers in an array and do the following using a
+loop.
+1.6.1 Display the smallest number.
+1.6.2 Display all ODD and EVEN numbers separately
+*/
+
+/*********************************************************************
+* File : lab1.6.2.txt
+* Author Name : Praseeda
+* Desc : Seperate numbers to even and odd
+* Version : 1.0
+* Last Modified Date : 2-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE numbers[10] AS INTEGER ARRAY
+	DECLARE odd[10] AS INTEGER ARRAY
+	DECLARE even[10] AS INTEGER ARRAY
+	DECLARE index1 AS INTEGER
+		AND INITIALIZE TO 0
+	DECLARE index2 AS INTEGER
+		AND INITIALIZE TO 0
+		
+	//Loop to accept array
+	PRINT "Enter the elements"
+	FOR index= 0 TO 9
+		ACCEPT numbers[index]
+	END FOR
+	
+	//separates elements into two arrays
+	FOR index= 0 TO 9
+	IF(numbers[index]/2==0)
+		even[index1]=numbers[index]
+		index1++
+	ELSE 
+		odd[index2]=numbers[index]
+		index2++
+		
+	//displays the two arrays
+	PRINT "Odd numbers are: "
+	FOR index= 0 TO odd.length
+		PRINT odd[index]
+	END FOR
+	
+	PRINT "Even numbers are: "
+	FOR index= 0 TO even.length
+		PRINT even[index]
+	END FOR
+END	
+	
+	

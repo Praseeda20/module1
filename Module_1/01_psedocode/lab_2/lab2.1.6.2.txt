@@ -1,0 +1,87 @@
+/*
+1.6 Write a pseudo code to accept 10 numbers in an array and do the following using a
+loop.
+1.6.1 Display the smallest number.
+1.6.2 Display all ODD and EVEN numbers separately
+*/
+
+/*********************************************************************
+* File : lab1.6.2.txt
+* Author Name : Praseeda
+* Desc : Seperate numbers to even and odd
+* Version : 1.0
+* Last Modified Date : 3-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+DECLARE numbers[10] AS INTEGER ARRAY
+DECLARE odd[10] AS INTEGER ARRAY
+DECLARE even[10] AS INTEGER ARRAY
+DECLARE index1 AS INTEGER
+DECLARE index2 AS INTEGER
+
+BEGIN
+	INITIALIZE index1 TO 0	
+	INITIALIZE index2 TO 0
+	acceptElements()
+	findEvenOdd()
+	displayEvenOdd()
+END
+
+/*********************************************************************
+* Module Name : acceptElements()
+* Input Parameters : numbers
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Loop to accept array
+*********************************************************************/			
+
+SUB acceptElements()
+	PRINT "Enter the elements"
+	FOR index= 0 TO 9
+		ACCEPT numbers[index]
+	END FOR
+END SUB
+
+/*********************************************************************
+* Module Name : findEvenOdd()
+* Input Parameters : numbers,numbers,odd,index1,index2
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : separates elements into two arrays
+*********************************************************************/	
+
+SUB findEvenOdd()
+	FOR index= 0 TO 9
+	IF(numbers[index]/2==0)
+		even[index1]=numbers[index]
+		index1++
+	ELSE 
+		odd[index2]=numbers[index]
+		index2++
+END SUB
+
+/*********************************************************************
+* Module Name : displayEvenOdd()
+* Input Parameters : odd, even
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : displays the two arrays
+*********************************************************************/			
+
+SUB displayEvenOdd()
+	PRINT "Odd numbers are: "
+	FOR index= 0 TO odd.length
+		PRINT odd[index]
+	END FOR
+	
+	PRINT "Even numbers are: "
+	FOR index= 0 TO even.length
+		PRINT even[index]
+	END FOR
+END	SUB
+	
+	

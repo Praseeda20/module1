@@ -1,0 +1,108 @@
+/*
+2.4 Refactor the below given code. The below pseudocode is used for calculating total
+leaves applicable per year for an employee. Number of Leaves added to an
+employee account differs based on the type of employment. For an Example, 2 days
+leave will be added per month for a permanent employee and 1 day leave will be
+added per month for a contract based employee
+RECORD Employee
+	DECLARE EmpId as INTEGER
+	DECLARE employmentType AS STRING
+END RECORD
+BEGIN
+	DECLARE emp AS Employee
+	//leaves variable is used to store number of leaves per month
+	DECLARE leaves, TotalLeaves AS INTEGER
+	FOR index= 1 to 5
+		PROMPT "Enter the EmployeeId" AND STORE IN emp.EmpId
+		PROMPT "Enter the employmentType" AND STORE IN emp.employmentType
+	END FOR
+	FOR index= 1 to 5
+		IF(employmentType=='PERMANENT') THEN
+			leaves=2;
+			TotalLeaves=leaves*12;
+		ELSE IF(employmentType=='CONTRACT') THEN
+			leaves=1;
+			TotalLeaves=leaves*12;
+		END IF
+		PRINT "Employee Id :" , emp.EmpId
+		PRINT "Total Available Leaves are :", TotalLeaves
+	END FOR
+	Index2=5;
+END
+*/
+
+/*********************************************************************
+* File : lab2.4.txt
+* Author Name : Praseeda
+* Desc : Calculating total leaves applicable per year for an employee
+* Version : 1.0
+* Last Modified Date : 4-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+RECORD Employee
+	DECLARE EmpId as INTEGER
+	DECLARE employmentType AS STRING
+END RECORD
+
+BEGIN
+	DECLARE empArr[5] AS Employee INTEGER
+	DECLARE leaves, totalLeaves AS INTEGER
+	getEmpDetails()
+	FOR index = 1 to empArr.length
+		TotalLeaves=calcAllowedLeaves(empArr, leaves , totalLeaves)
+		dispEmpLeaves(empArr,totalLeaves)
+	END FOR
+END
+
+/*********************************************************************
+* Module Name : getEmpDetails()
+* Input Parameters : empArr
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Accepts the employee ID and employment type
+*********************************************************************/		
+SUB getEmpDetails(empArr)
+	FOR index= 1 to empArr.length
+		PROMPT "Enter the EmployeeId" AND STORE IN
+		empArr[index].EmpId
+		PROMPT "Enter the employmentType" AND STORE IN
+		empArr[index].employmentType
+	END FOR
+END SUB
+
+
+/*********************************************************************
+* Module Name : calcAllowedLeaves()
+* Input Parameters : empArr, leaves, totalLeaves
+* Return Type : INTEGER
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Calculate the total leaves based on employement type
+*********************************************************************/	
+SUB calcAllowedLeaves(empArr, leaves, totalLeaves)
+	FOR index= 1 to empArr.length
+		IF(empArr[index].employmentType=='PERMANENT') THEN
+			leaves=2;
+		ELSE IF (empArr[index].employmentType=='CONTRACT') THEN
+			leaves=1;
+		END IF
+			CALCULATE totalLeaves=leaves*12;
+	END FOR
+	RETURN totalLeaves
+END SUB
+
+
+/*********************************************************************
+* Module Name : dispEmpLeaves()
+* Input Parameters : empArr, totalLeaves
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Displays the total leaves based on employee id
+*********************************************************************/	
+SUB dispEmpLeaves(empArr, TotalLeaves)
+		PRINT "Employee Id :" + emp.EmpId
+		PRINT "Total Available Leaves are :"+ totalLeaves
+END SUB

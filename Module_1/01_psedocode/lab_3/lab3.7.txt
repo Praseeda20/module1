@@ -1,0 +1,102 @@
+/*
+3.7 Write a module in pseudo code to accept 2 strings and return success message if
+second string is a substring of first string. For Example: If a user enters first string as
+“Testing” and second string as “Test”, then “Substring found in source string” message
+should be displayed.
+*/
+
+/*********************************************************************
+* File : lab3.7.txt
+* Author Name : Praseeda
+* Desc : String matching
+* Version : 1.0
+* Last Modified Date : 4-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+DECLARE str1[10] AS STRING ARRAY
+DECLARE str2[10] AS STRING ARRAY
+DECLARE flag AS INTEGER
+DECLARE strLen AS INTEGER
+DECLARE base AS INTEGER
+
+BEGIN	
+	INITIALIZE flag TO 1
+	INITIALIZE base TO 0
+	acceptStrings()	
+	calcStringLength()
+	matchStrings()	
+	displayResult()
+END
+
+/*********************************************************************
+* Module Name : acceptStrings()
+* Input Parameters : str1, str2
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Accepts the Strings 
+*********************************************************************/
+SUB acceptStrings()	
+	PROMPT "Enter the String" AND STORE IN str1
+	PROMPT "Enter the Sub String" AND STORE IN str2
+END
+
+
+/*********************************************************************
+* Module Name : calcStringLength()
+* Input Parameters : str1
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Calculates the length 
+*********************************************************************/
+SUB calcStringLength()	
+	CALCULATE strLen = strlength(str1)
+END SUB
+
+
+/*********************************************************************
+* Module Name : matchStrings()
+* Input Parameters : str1, str2, strLen, flag
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Matches the Strings 
+*********************************************************************/
+SUB matchStrings()	
+	FOR index = 0 TO strLen-1
+		IF(str1[base]==str1[index])
+			FOR index1 = index+1 TO strLen-1
+				IF (str2[base+1]==str1[index1])
+					base++
+					index1++
+				ELSE
+					flag = 0
+					break
+				END IF
+			END FOR
+		END IF
+	END FOR
+END SUB
+
+
+/*********************************************************************
+* Module Name : displayResult()
+* Input Parameters : flag
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Displays the result
+*********************************************************************/
+SUB displayResult()	
+	IF(flag == 1)
+		PRINT "Substring matched with the given String"
+	ELSE
+		PRINT "Substring not matched with the given String"
+	END IF
+END SUB
+
+					
+	 
+	

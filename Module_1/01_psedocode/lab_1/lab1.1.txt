@@ -1,0 +1,57 @@
+/*
+1.1 Rima is working in State Electricity Board Project. She got the following requirement.
+The following information has to be accepted from the user to calculate the net
+electricity bill amount.
+ User ID
+ User Name
+ Last month meter reading
+ Current month meter reading
+Unit consumed = (Last month meter reading) – (Current month meter reading)
+Net Amount = Unit consumed * 1.15 +Fixed Charge
+Assume Fixed Charge is always Rs.100.
+Write pseudo code to print the electricity bill. The bill should be in the following
+format
+User ID:
+User Name:
+Unit Consumed:
+Net amount:
+*/
+
+/*********************************************************************
+* File : lab1.1.txt
+* Author Name : Praseeda
+* Desc : Calculate the net electricity bill amount.
+* Version : 1.0
+* Last Modified Date : 2-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE UserID AS INTEGER
+	DECLARE UserName AS STRING
+	DECLARE lstMnthReading AS REAL
+	DECLARE crntMnthReading AS REAL
+	DECLARE unitCnsmd AS REAL
+	DECLARE netAmt AS REAL
+	DECLARE CONSTANT FXD_CHRGE=100 AS REAL
+
+	PROMPT "ENTER THE USERID" AND STORE IN UserId
+	PROMPT "ENTER THE USER NAME" AND STORE IN UserName
+	PROMPT "ENTER THE lAST MONTH READING" AND STORE IN lstMnthSalary
+	PROMPT "ENTER THE CURRENT MONTH READING" AND STORE IN crntMnthSalary
+
+	CALCULATE unitCnsmd=(lstMnthReading)+(crntMnthReading)
+	CALCULATE netAmt=unitCnsmd * 1.15 + FXD_CHRGE
+
+	DISPLAY "User ID: " +UserID
+	DISPLAY "User Name: " +UserName
+	DISPLAY "Unit Consumed: " +unitCnsmd
+	DISPLAY "Net Amount: " +netAmt
+END
+
+	
+		
+	
+	
+	
+	

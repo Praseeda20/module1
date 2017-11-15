@@ -1,0 +1,77 @@
+/*
+1.4 Write a pseudo code to accept a number and check whether a given number is an
+Armstrong number. For example, 371 is an Armstrong number since (3*3*3) +
+(7*7*7) + (1*1*1) = 371.
+*/
+
+/*********************************************************************
+* File : lab1.4.txt
+* Author Name : Praseeda
+* Desc : Check whether Armstrong number or not
+* Version : 1.0
+* Last Modified Date : 3-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+DECLARE rem AS INTEGER
+DECLARE check AS INTEGER
+DECLARE sum AS INTEGER
+INITIALIZE sum TO 0
+INITIALIZE check TO num
+
+BEGIN
+	DECLARE num AS INTEGER
+	num = acceptNum(num)
+	sum = calcValue(sum, check, rem)
+	checkNum(sum, num)
+END
+
+/*********************************************************************
+* Module Name : acceptNum()
+* Input Parameters : num
+* Return Type : INTEGER
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Accept number
+*********************************************************************/	
+
+SUB acceptNum(num)
+	PROMPT "Enter the number " AND STORE IN num
+	RETURN num
+END SUB
+
+/*********************************************************************
+* Module Name : calcValue()
+* Input Parameters : sum, check, rem
+* Return Type : INTEGER
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Calculate SUM
+*********************************************************************/	
+
+SUB calcValue(sum, check, rem)
+	WHILE(check!=0)
+		rem= check % 10
+		check= check / 10
+		sum= sum + rem * rem * rem
+	END WHILE
+	RETURN sum
+END SUB
+
+/*********************************************************************
+* Module Name : checkNum()
+* Input Parameters : sum, num
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Check Number is Armstrong or not
+*********************************************************************/	
+
+SUB checkNum(sum, num)
+	calcValue(sum, check, rem)
+	IF(sum == num) THEN
+		PRINT "The given number is an Armstrong Number " 
+	ELSE
+		PRINT "The given number is not an Armstrong Number " 
+	END IF
+END SUB

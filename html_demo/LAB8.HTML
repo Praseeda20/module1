@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+<title>CANDIDATE INFORMATION</title>
+<style>
+
+</style>
+
+</head>
+
+<body> <center>
+<table border="1" width="70%" bgcolor="#A9D7E7" >
+<h1> Candidate Information</h1>
+<form>
+<tr>
+   <td> Name:</td>
+   <td> <input type="text" required  maxlength="20" pattern="[a-zA-z]+"/> </td>
+   </tr>
+    <tr>
+   <td> Password:</td>
+   <td><input type="password" id="txtpwd" name="pwd" required/> </td>
+   </tr>
+    <tr>
+   <td> Phone Number:</td>
+   <td><input type="text" id="txtph" name="phone" required/> </td>
+   </tr>
+   
+   <tr>
+   <td><label>Gender: </label> </td>
+					<td><label> <input type="radio" id="rbm" name="male"/>Male
+					<label> <input type="radio" id="rbf" name="female"/>Female
+					</label></td></tr>
+					
+   <tr><td><label for="txtdob"> Date Of Birth:</label></td>
+	<td><input type="date" id="txtdob" name="dob"/></td></tr>
+ 
+	<td> Email ID:</td>
+   <td><input type="email" id="txtmail" name="email" required/> </td>
+   </tr>
+
+			<tr>
+				<td><label for="txtqual">Highest Qualification:</label> </td>
+				<td><select id="qual" name="qual" required> 
+					<option> Select Highest Qualification</option>
+					<option> Post Graduate</option>
+					<option> Under Graduate</option>
+					<option> Diploma</option>
+					<option> 12th</option>
+					<option> 10th</option>
+				</select></td>	</tr>
+				
+			<tr><td><label>Courses Interested in: </label></td> 
+				<td> <input type="checkbox" id="chk1" name="java" />Java
+				<input type="checkbox" id="chk2" name="html5" />HTML5
+				<input type="checkbox" id="chk3" name="css3" />CSS3
+				<input type="checkbox" id="chk4" name="angle" />Angular JS
+				<input type="checkbox" id="chk3" name="jquery" />JQuery
+			</label></td></tr>
+ 
+	<tr><td><label>Comments(Mention External Certifications if any): </label> 
+	</td><td><textarea rows="5" cols="50" id="txtaddress" name="address"></textarea></td>
+	
+<tr><td><label>Upload Degree/External Certificates: </label> </td>
+<td><p> <input type="file"/> </p></td>
+
+<tr><td></td>
+<td>
+<button type="submit"> Submit Information</button>
+<button type="reset"> Clear</button>
+</td></tr>
+	
+</table>
+<h4 style="color:red"}>All fields marked(*) are mandatory</h4>
+</body>
+</html>

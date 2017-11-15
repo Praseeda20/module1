@@ -1,0 +1,79 @@
+/*
+1.2 Organization employees are recognized with different tags based on their
+experience.
+Years of Experience Tag Color
+0 - <3 Blue
+3 - <5 Grey
+5 - <10 Yellow
+>10 Red
+Write pseudo code to accept the experience and display their tag Color.
+*/
+
+/*********************************************************************
+* File : lab1.2.txt
+* Author Name : Praseeda
+* Desc : Accept the experience and display tag Color
+* Version : 1.0
+* Last Modified Date : 3-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE experience AS INTEGER
+	DECLARE color AS STRING
+	INITIALIZE experience TO 0
+	experience = acceptExp(experience)
+	color = matchColor(experience)
+	printColor(experience)
+END
+
+/*********************************************************************
+* Module Name : acceptExp()
+* Input Parameters : experience
+* Return Type : INTEGER
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Accept experience from user
+*********************************************************************/
+//Accepts experience as input
+SUB acceptExp(experience)
+	PROMPT "Enter your experience " AND STORE IN experience
+	RETURN experience
+END SUB
+
+/*********************************************************************
+* Module Name : matchColor()
+* Input Parameters : experience
+* Return Type : String
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Compare with color to find tags
+*********************************************************************/
+//Compares with color to find the color tag
+SUB matchColor(experience)
+	IF(experience<3) THEN
+		color=Blue
+	ELSE IF(experience>=3 AND experience<5) THEN
+		color=Grey
+	ELSE IF(experience>=5 AND experience<10) THEN
+		color=Yellow
+	ELSE
+		color=Red
+	END IF
+	RETURN color
+END SUB
+
+/*********************************************************************
+* Module Name : printColor()
+* Input Parameters : experience
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Prints color
+*********************************************************************/
+//Prints color
+SUB printColor(experience)
+	PRINT "Your Color Tag: " +color
+END SUB
+	
+	 

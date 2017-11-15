@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE> MOVIE FEEDBACK FORM </TITLE>
+	</HEAD>
+	<table border="0" width="100%">
+		<form>
+			<tr>
+				<td><label for="txttitle">MOVIE TITLE:</label></td>
+				<td><input type="text" id="txttitle" name="title"/></td>
+			</tr>
+			<tr>
+				<td><label for="txtgenre">GENRE:</label> </td>
+				<td><select id="genre" name="genre"> 
+					<option> Action</option>
+					<option> Thriller</option>
+					<option> Comedy</option>
+					<option> Romantic</option>
+					<option> Horror</option>
+				</select></td>	
+			<tr>
+			<td><label>RATING: </label> </td>
+					<td><label> <input type="radio" id="rbwrst" name="worst"/>Worst
+					<label> <input type="radio" id="rbbad" name="bad"/>Bad
+					<label> <input type="radio" id="rbwaw" name="worst"/>WAW
+					<label> <input type="radio" id="rbgood" name="bad"/>Good
+					<label> <input type="radio" id="rbexe" name="worst"/>Excellent
+			</label></td></tr>
+			
+			<tr><td rowspan="3"><label>What is Good..?: </label></td> 
+				<td><label> <input type="checkbox" id="chk1" name="cast" />Cast</td></tr>
+				<tr><td><label> <input type="checkbox" id="chk2" name="direction" />Direction</td></tr>
+				<tr><td><label> <input type="checkbox" id="chk3" name="story" />Story
+			</label></td></tr>
+			
+			<tr><td rowspan="3"><label>What is Bad..?: </label> </td>
+				<td><label> <input type="checkbox" id="chk4" name="direc" />Direction</td></tr>
+				<tr><td><label> <input type="checkbox" id="chk5" name="action" />Action</td></tr>
+				<tr><td><label> <input type="checkbox" id="chk6" name="story" />Story
+			</label></td></tr>
+			
+			<tr><td><label for="txtcmmnt">COMMENT: </label></td>
+				<td><textarea rows="5" cols="50" id="txtcmmnt" name="comment"></textarea></td>
+			</tr>
+			
+			<tr><td> </td>
+			<td ><button type="submit"> RATE IT
+			<button type="reset"> CLEAR</td></tr>
+	
+	</form>
+	</table>
+	</BODY>
+</HTML>

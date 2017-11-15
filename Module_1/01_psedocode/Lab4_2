@@ -1,0 +1,145 @@
+/*Take care of necessary validations in 2.4 assignment in order to avoid exceptional
+scenarios*/
+
+/*********************************************************************
+ * File                 : Lab4_2.txt
+ * Author Name          : Himanshu Kemwal
+ * Desc                 : Program to calculating total
+							leaves applicable per year for an employee 
+							And avoid exceptional
+ * Version              : 1.0
+ * Last Modified Date   : 04-Nov-2017
+ * Change Description   : Description about the changes implemented
+ *********************************************************************/
+ 
+//Created a record for Employee
+RECORD Employee
+	DECLARE EmpId as INTEGER
+	DECLARE employmentType AS STRING
+END RECORD
+
+BEGIN
+	 DECLARE empArr[5] AS Employee ARRAY
+	 DECLARE leaves, TotalLeaves AS INTEGER
+	 		AND INITIALIZE TO 0
+	 empArr=acceptEmployee()
+	 TotalLeaves=calculateLeave(empArr,leaves)
+	 displayEmployee(empArr,TotalLeaves)
+	 
+	 EXCEPTION 
+	 		WHEN NumberFormatError
+	 			THEN PRINT errorMessage
+	 		WHEN InvalidEmploymentType
+	 			THEN PRINT errorMessage
+	 		WHEN OTHERS
+	 			THEN PRINT errorMessage
+	 			
+END
+
+/*********************************************************************
+* Module Name         : acceptEmployee()
+* Input Parameters    : NA
+* Return Type         : array
+* Author              : Himanshu Kemwal
+* Creation Date       : 04-Nov-2017
+* Description         : Accepting the Employee array from User
+ *********************************************************************/
+
+SUB acceptEmployee()
+	DECLARE empArr[5] AS Employee ARRAY
+	DECLARE empId AS INTEGER
+	DECLARE employmentType AS STRING
+	FOR index= 0 to empArr.length-1
+	//accepting empID
+		PROMPT "Enter the EmployeeId" AND STORE IN empId				
+			IF(isValidEmpId(empId)
+				empArr[index].EmpId
+			ELSE
+				RAISE NumberFormatError "Employee Id must be only digit >0"
+	//accepting employmentType			
+		PROMPT "Enter the employmentType" AND STORE IN employmentType
+			IF(isValidEmpType(employmentType)
+				empArr[index].employmentType
+			ELSE
+				RAISE InvalidEmploymentType "Employee Type can be either CONTRACT or PERMANENT"
+		
+	END FOR
+	return empArr
+END SUB
+/*********************************************************************
+* Module Name         : calculateLeave(empArr,leaves)
+* Input Parameters    : array,int
+* Return Type         : int
+* Author              : Himanshu Kemwal
+* Creation Date       : 04-Nov-2017
+* Description         : Calculating the total Leaves for All the employees in the array
+ *********************************************************************/
+
+SUB calculateLeave(empArr,leaves)
+	DECLARE TotalLeaves AS INTEGER
+	FOR index= 1 to 5
+		IF(empArr[index].employmentType=='PERMANENT') THEN
+			leaves=2;
+			TotalLeaves=leaves*12;
+		ELSE IF(empArr[index].employmentType=='CONTRACT') THEN
+			leaves=1;
+			TotalLeaves=leaves*12;
+		END IF
+		PRINT "Employee Id :" , emp.EmpId
+		PRINT "Total Available Leaves are :", TotalLeaves
+	END FOR
+	RETURN TotalLeaves
+END SUB
+/*********************************************************************
+* Module Name         : displayEmployee(empArr,TotalLeaves)
+* Input Parameters    : array,int
+* Return Type         : NA
+* Author              : Himanshu Kemwal
+* Creation Date       : 04-Nov-2017
+* Description         : Displaying the EmployeeId and total Leaves
+ *********************************************************************/
+
+SUB displayEmployee(empArr,TotalLeaves)
+	FOR index= 0 to empArr.length-1
+		PRINT "Employee Id :" , empArr[index].EmpId
+		PRINT "Total Available Leaves are :", TotalLeaves
+	END FOR
+END SUB
+
+/*********************************************************************
+* Module Name         : isValidEmpId(data)
+* Input Parameters    : INTEGER
+* Return Type         : BOOLEAN
+* Author              : Himanshu Kemwal
+* Creation Date       : 04-NOV-2017
+* Description         : To validate data for accepting only digits >0
+*********************************************************************/
+
+SUB isValidEmpId(data)
+	DECLARE status AS BOOLEAN
+	status =isDigits(data)
+	IF data<0
+		status =false
+	RETURN status
+END SUB
+
+/*********************************************************************
+* Module Name         : isValidEmpType(data)
+* Input Parameters    : STRING
+* Return Type         : BOOLEAN
+* Author              : Himanshu Kemwal
+* Creation Date       : 04-NOV-2017
+* Description         : To validate data for accepting employmentType as 'PERMANENT' OR 'CONTRACT' only
+*********************************************************************/
+
+SUB isValidEmpType(data)
+	DECLARE status AS BOOLEAN
+	IF  ((data=='PERMANENT')
+	  ||(data=='CONTRACT'))
+    THEN
+			status=TRUE
+	ELSE
+			status=FALSE
+	END IF
+	RETURN status
+END SUB

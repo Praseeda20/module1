@@ -1,0 +1,224 @@
+
+SQL> CREATE TABLE Emp( Empno number(4) NOT NULL,
+  2               Ename varchar2(10),
+  3               job varchar2(9),
+  4               mgr number(4),
+  5               Hiredate date,
+  6               Sal number(7,2),
+  7               Comm number(7,2),
+  8               Deptno number(2));
+
+Table created.
+
+SQL> insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno)
+  2  values(101,'Deepak','Analyst',13,'25-OCT-2005',13000.20,100.00,21);
+
+1 row created.
+
+SQL>
+SQL> insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno)
+  2  values(102,'Nidhi','Developer',10,'02-DEC-2001',25000.20,2000.50,24);
+
+1 row created.
+----------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Designation_Master( Design_code number(3) NOT NULL,
+  2               Design_name varchar2(50));
+
+Table created.
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Department_Master( Dept_code number(2) NOT NULL,
+  2                                     Dept_name varchar2(50));
+
+Table created.
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Student_Master( Student_Code number(6) NOT NULL,
+  2                               Student_name varchar2(50) NOT NULL,
+  3                               Dept_Code number(2),
+  4                               Student_dob date,
+  5                               Student_Address varchar2(240));
+
+Table created.
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Student_Marks( Student_Code number(6),
+  2                              Student_Year number(10),
+  3                              subject1 number(3),
+  4                              subject2 number(3),
+  5                              subject3 number(3));
+
+Table created.
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Student_Master( Student_Code number(6) NOT NULL,
+  2                               Student_name varchar2(50) NOT NULL,
+  3                               Dept_Code number(2),
+  4                               Student_dob date,
+  5                               Student_Address varchar2(240));
+
+Table created.
+
+insert into student_master(
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Student_Marks( Student_Code number(6),
+  2                              Student_Year number(10),
+  3                              subject1 number(3),
+  4                              subject2 number(3),
+  5                              subject3 number(3));
+
+Table created.
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Staff_Master( Staff_Code number(6) NOT NULL,
+  2                             staff_name varchar2(50) NOT NULL,
+  3                             design_code number(3),
+  4                             dept_code number(3),
+  5                             hiredate date,
+  6                             staff_dob date,
+  7                             staff_address varchar2(240),
+  8                             mgr_code number(8),
+  9                             staff_sal number(10,2));
+
+Table created.
+
+SQL> insert into staff_master(staff_code, staff_name, design_code, dept_code, hiredate,staff_dob,staff_address,mgr_code, staff_sal)
+  2 values(1001,'Rahul',300,24,'02-JAN-2002','19-MAR-1977','Thane MUMBAI',10,15000.20);
+
+1 row created.
+
+SQL> insert into staff_master(staff_code, staff_name, design_code, dept_code, hiredate,staff_dob,staff_address,mgr_code, staff_sal) 
+ 2 values(1002,'Deepak_Singh',300,24,'25-OCT-2005','19-MAR-1982','New Delhi',10,15000.20);
+
+1 row created.
+
+SQL> insert into staff_master(staff_code, staff_name, design_code, dept_code, hiredate,staff_dob,staff_address,mgr_code,staff_sal)
+ values(1003,'Abhishek',324,16,'18-AUG-2008','19-MAR-1985','Kerala',NULL,12000.00);
+
+1 row created.
+insert into staff_master(staff_code, staff_name, design_code, dept_code, hiredate,staff_dob,staff_address,mgr_code,staff_sal)
+ values(1004,'Abhinav',384,16,'18-NOV-2000','09-FEB-1965','Chennai',11,32000.00);
+
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Book_master( book_code number(10) NOT NULL,
+  2                            book_name varchar2(50) NOT NULL,
+  3                            book_pub_year number(10),
+  4                            book_pub_author varchar2(50) NOT NULL);
+
+Table created.
+
+INSERT INTO Book_Master(book_code,book_name,book_pub_year, book_pub_author )
+VALUES(1234,'LET US C',2002,'YASHWANT KANETKAR');
+
+INSERT INTO Book_Master(book_code,book_name,book_pub_year, book_pub_author )
+VALUES(1235,'SOFTWARE ENGINEERING & TESTING',1999,'KK AGGARWAL');
+
+INSERT INTO Book_Master(book_code,book_name,book_pub_year, book_pub_author )
+VALUES(1236,'JAVA PROGRAMMING & LEARNING',2004,'DK GARG');
+
+ SELECT * FROM BOOK_MASTER;
+
+K_CODE BOOK_NAME                                          BOOK_PUB_YEAR
+------ -------------------------------------------------- -------------
+_PUB_AUTHOR
+----------------------------------------------
+  1234 LET US C                                                    2002
+WANT KANETKAR
+
+  1236 JAVA PROGRAMMING & LEARNING                                 2004
+ARG
+
+  1235 SOFTWARE ENGINEERING & TESTING                              1999
+GGARWAL
+
+
+---------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE Book_Transactions( book_code number(10),
+  2  student_code number(5),
+  3  staff_code number(5),
+  4  book_issue_date date NOT NULL,
+  5  book_expected_return_date date NOT NULL,
+  6  book_actual_return_date date);
+
+Table created.
+---------------------------------------------------------------------------------------------------------------
+
+
+lab_1
+
+1. List the Name and Designation code of the staff who have joined before Jan 2003
+and whose salary range is between 12000 and 25000. Display the columns with
+user defined Column headers. Hint: Use As clause along with other operators.
+
+SQL> select staff_name,design_code from staff_master where hiredate<'01-JAN-2003'
+ and staff_sal BETWEEN 12000 AND 25000;
+
+STAFF_NAME                                         DESIGN_CODE
+-------------------------------------------------- -----------
+Rahul                                                      300
+
+
+2. List the staff code, name, and department number of the staff who have
+experience of 18 or more years and sort them based on their experience.
+
+SQL> select STAFF_CODE,STAFF_name,dept_code from staff_master where tO_NUMBER(RO
+UND((SYSDATE-HIREDATE)/365))>12;
+
+STAFF_CODE STAFF_NAME                                          DEPT_CODE
+---------- -------------------------------------------------- ----------
+      1001 Rahul                                                      24
+      1004 Abhinav                                                    16
+
+
+3. Display the staff details who do not have manager. Hint: Use is null
+
+SQL> SELECT * FROM staff_master WHERE mgr_code IS NULL;
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+
+  MGR_CODE  STAFF_SAL
+---------- ----------
+      1003 Abhishek                                                   324
+        16 18-AUG-08 19-MAR-85
+Kerala
+                12000
+
+
+4. Display the Book details that were published during the period of 2001 to 2004.
+Also display book details with Book name having the character ‘&’ anywhere.
+
+
+
+5.List the names of the staff having ‘_’ character in their name.
+
+SQL> select staff_name from staff_master where staff_name like '%\_%' ESCAPE '\'
+;
+
+STAFF_NAME
+--------------------------------------------------
+Deepak_Singh
+
+
+
+
+
+
+
+
+
+CREATE TABLE Department_Master( Dept_code number(2) NOT NULL,
+            		        Dept_name varchar2(50));
+
+======================================
+ select STAFF_name lpad(STAFF_sal,15,'$')sTAFF_SAL from STAFF_MASTER;
+
+select STAFF_name from staff_master where tO_NUMBER(ROUND((SYSDATE-HIREDATE)/30))>12;

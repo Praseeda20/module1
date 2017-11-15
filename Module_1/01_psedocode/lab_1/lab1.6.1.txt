@@ -1,0 +1,37 @@
+/*1.6 Write a pseudo code to accept 10 numbers in an array and do the following using a
+loop.
+1.6.1 Display the smallest number.
+1.6.2 Display all ODD and EVEN numbers separately
+*/
+
+/*********************************************************************
+* File : lab1.6.1.txt
+* Author Name : Praseeda
+* Desc : Find smallest number in the array
+* Version : 1.0
+* Last Modified Date : 2-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE numbers[10] AS INTEGER ARRAY
+	DECLARE min AS INTEGER
+	
+	INITIALIZE min TO 0
+	
+	//Loop to accept array
+	PRINT "Enter the elements"
+	FOR index= 0 TO 9
+		ACCEPT numbers[index]
+	END FOR
+	
+	//Loop to find minimum value in the array
+	FOR index= 0 TO 9
+		IF numbers[index] > min THEN
+			min=numbers[index]
+		END IF
+	END FOR
+	
+	//Display the minimum number
+	PRINT "The minimum number is: " +min
+END

@@ -1,0 +1,71 @@
+/* 2.2 Write a module in pseudo code to accept a number and return the sum of its digits.
+Invoke the user defined module in main program. For an example: if a user enters
+input as 12, then the output will be 3.
+*/
+
+/*********************************************************************
+* File : lab2.2.txt
+* Author Name : Praseeda
+* Desc : Accept a number and return the sum of its digits.
+* Version : 1.0
+* Last Modified Date : 4-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE number AS INTEGER
+	DECLARE sum AS INTEGER
+	DECLARE remainder AS INTEGER
+		AND INITIALIZE TO 0
+	number = acceptNum(number)
+	sum = calcSum(number)
+	displaySum(sum, number)
+END
+
+/*********************************************************************
+* Module Name : acceptNum()
+* Input Parameters : number
+* Return Type : INTEGER
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Accepts the number
+*********************************************************************/	
+
+SUB acceptNum()
+	PROMPT "Enter the number: " AND STORE IN number
+	RETURN number
+END SUB
+
+
+/*********************************************************************
+* Module Name : calcSum()
+* Input Parameters : number
+* Return Type : INTEGER
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Calculates the sum of digits of the numbers
+*********************************************************************/	
+
+SUB calcSum(number)
+	WHILE (number != 0)
+		remainder = number % 10
+		sum = sum + remainder
+		number = number / 10
+	END WHILE
+	RETURN sum
+END SUB
+
+
+/*********************************************************************
+* Module Name : displaySum()
+* Input Parameters : sum, number
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Displays the result
+*********************************************************************/	
+
+SUB displaySum(sum, number)
+	PRINT "The sum of digits of the number:" +number
+	PRINT "is: " +sum
+END SUB

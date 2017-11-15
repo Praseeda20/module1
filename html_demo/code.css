@@ -1,0 +1,10 @@
+
+			*{margin:10px; padding:10px;}
+			body{background-color:#FFFFF0}
+			h1,h2,h3,h4,h5,h6{font-family:'arial black'}
+			h1{text-align:center; border-bottom:2px solid #000000; background-color:#00FFFsss0; border-top-right-radius:10px; border-top-left-radius:10px; margin-bottom:0px;}
+			div{margin-top:0px; margin-bottom:0px;}
+			#obj{background-color:#FFFF00}
+			#contact{background-color:#FFF000}
+			th{text-align:right}
+			h3{border-bottom:1px dashed #000000}

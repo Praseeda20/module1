@@ -1,0 +1,78 @@
+/*
+2.3 Write a module in pseudo code to accept an array with 10 numbers and return
+number of unique values in an array. For an example, if the given input array
+contains values such as {10,22,13,22,44,6,24,44,77,8}, then the output should be 6.
+*/
+
+/*********************************************************************
+* File : lab2.3.txt
+* Author Name : Praseeda
+* Desc : Count number of unique values in an array.
+* Version : 1.0
+* Last Modified Date : 4-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+DECLARE numbers[10] AS INTEGER ARRAY
+BEGIN
+	DECLARE index AS INTEGER
+	DECLARE indexp AS INTEGER
+	DECLARE indexq AS INTEGER
+	DECLARE count AS INTEGER AND INITIALIZE TO 0
+	acceptNum()
+	count=countUniqueNum(numbers)
+	displayCount(count)
+END
+
+
+/*********************************************************************
+* Module Name : acceptNum()
+* Input Parameters : numbers
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Accepts the elements of the array
+*********************************************************************/		
+SUB acceptNum()
+	PRINT "Enter 10 numbers" 
+	FOR index 0 TO 9
+		ACCEPT numbers[index]
+	END FOR
+END SUB
+
+
+/*********************************************************************
+* Module Name : countUniqueNum()
+* Input Parameters : numbers
+* Return Type : INTEGER
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Calculates the number of unique value in the array
+*********************************************************************/	
+SUB countUniqueNum(numbers)
+	FOR indexp=0 TO numbers.length-1
+		FOR indexq=indexp+1 TO numbers.length-1
+			IF(numbers[indexq]==numbers[indexp]) THEN
+				count+1
+			END IF
+			indexq+1
+		END FOR
+		indexp+1
+	END FOR
+	count=count*2
+	RETURN count
+END	SUB
+
+
+/*********************************************************************
+* Module Name : displayCount()
+* Input Parameters : count
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Displays the count of number that are unique
+*********************************************************************/	
+SUB displayCount(count)
+	CALCULATE count=10-count
+	PRINT "There are "+count+"unique numbers"
+END SUB

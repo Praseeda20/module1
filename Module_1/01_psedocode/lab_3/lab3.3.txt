@@ -1,0 +1,24 @@
+/*
+3.3 Find the time efficiency class of the following algorithm,
+ALGORITHM Find(Matrix[0..n-1,0..n])
+//Input: An n by n+1 matrix Matrix[0..n-1,0..n] of real numbers
+	for index =0 to n-2 do
+		for nextindex =index+1 to n-1 do
+			for tempindex=index to n do
+				Matrix[nextindex,tempindex]=Matrix[nextindex,tempindex]-
+				Matrix[index,tempindex] * Matrix[nextindex,index] / Matrix[index,index]
+*/
+
+/*********************************************************************
+* File : lab3.3.txt
+* Author Name : Praseeda
+* Desc : Analysis of the algorithm to Find the time efficiency 
+		 class of the following algorithm,
+* Version : 1.0
+* Last Modified Date : 4-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+1 Find the time efficiency class of the following algorithm.
+ANS: Time effieciency class of the above code is Cubic i.e n^3 as we have 3 for loops.
+

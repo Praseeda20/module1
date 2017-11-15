@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head> 
+		<title> forms </title>
+	</head>
+	<body>
+		<form>
+			<p><label for="txtsnm">Student Name:</label> <input type="text" id="txtsnm" name="snm"/></p>
+			<p><label for="txtdob">Student DOB:</label> <input type="date" id="txtdob" name="dob"/></p>
+			<p><label for="txtpwd">Student Password:</label> <input type="password" id="txtpwd" name="pwd"/></p>
+			<p><label for="txtheight">Student Height:</label> <input type="number" id="txtheight" name="height"/></p>
+			<p><label for="txtphoto">Student Photo:</label> <input type="file" id="txtphoto" name="photo"/></p>
+			<p><label>Gender:</label> <label> <input type="radio" id="rbm" name="gender"/>Boy
+			<label> <input type="radio" id="rbf" name="gender"/>Girl</label></p>
+			<p><label for="txtmail">Student MailID:</label> <input type="email" id="txtmailid" name="mailid"/></p>
+			<p><label for="txtmob">Student Mobile:</label> <input type="text" id="txtmobile" name="mobile" pattern="\d{10}"/></p>
+			<p><label for="txtcourse">Student Course:</label> 
+				<select id="course" name="course"> 
+					<option> B.TECH</option>
+					<option> M.TECH</option>
+					<option> PHD</option>
+				</select>	
+			</p>
+			<p><label for="txtactivities">Student Activities:</label> 
+				<select id="activities" name="activities" multiple>
+				<option>racing</option>
+				<option>archery</option>
+				<option>horse riding</option>
+				<option>shooting</option>
+				<option>fencing</option>
+				</select>	
+			</p>
+			<p><label for="txtincome">Father's Annual Income:</label> <input type="range" i="txtincome" name="income" min="1" max="1000"/>
+			<p><label for="txtaddess">Address: </label><textarea rows="5" cols="50" id="txtaddress" name="address"></textarea></p>
+			<p> <label> <input type="checkbox" id="chk1" name="agree" />I accept all terms and conditions.</label></p>
+			<p> <button type="reset"> Clear all </p>
+			<p> <button type="submit"> Register the students </p>
+		</form>
+	</body>
+</html>
+
+	

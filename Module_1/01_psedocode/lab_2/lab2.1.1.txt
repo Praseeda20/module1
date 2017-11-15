@@ -1,0 +1,79 @@
+/*
+2.1 Modify all the pseudo code written in lab 1 to ensure that the code adheres to good
+programming practices such as readability and maintainability.
+*/
+
+/*********************************************************************
+* File : lab2.1.1.txt
+* Author Name : Praseeda
+* Desc : Calculate the net electricity bill amount.
+* Version : 1.0
+* Last Modified Date : 3-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+DECLARE UserID AS INTEGER
+DECLARE UserName AS STRING
+DECLARE lstMnthReading AS REAL
+DECLARE crntMnthReading AS REAL
+DECLARE unitCnsmd AS REAL
+DECLARE netAmt AS REAL
+DECLARE CONSTANT FXD_CHRGE=100 AS REAL
+
+BEGIN	
+	accptValues()
+	calcValues()
+	display()
+END	
+
+/*********************************************************************
+* Module Name : accptValues()
+* Input Parameters : UserID, UserName, lstMnthReading, crntMnthReading
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Accept values from user
+*********************************************************************/
+SUB accptValues()		
+	PROMPT "ENTER THE USERID" AND STORE IN UserId
+	PROMPT "ENTER THE USER NAME" AND STORE IN UserName
+	PROMPT "ENTER THE lAST MONTH READING" AND STORE IN lstMnthSalary
+	PROMPT "ENTER THE CURRENT MONTH READING" AND STORE IN crntMnthSalary
+END SUB
+
+
+/*********************************************************************
+* Module Name : calcValues()
+* Input Parameters : lstMnthReading, crntMnthReading, FXD_CHRGE
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Calculate Unit consumed and net amount
+*********************************************************************/	
+SUB calcValues()
+	CALCULATE unitCnsmd=(lstMnthReading)+(crntMnthReading)
+	CALCULATE netAmt=unitCnsmd * 1.15 + FXD_CHRGE
+END SUB
+
+
+/*********************************************************************
+* Module Name : display()
+* Input Parameters : UserID, UserName, lstMnthReading, crntMnthReading
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 3-Nov-2017
+* Description : Applying discount on the product price
+*********************************************************************/	
+SUB display()
+	DISPLAY "User ID: " +UserID
+	DISPLAY "User Name: " +UserName
+	DISPLAY "Unit Consumed: " +unitCnsmd
+	DISPLAY "Net Amount: " +netAmt
+END SUB
+
+
+	
+		
+	
+	
+	
+	

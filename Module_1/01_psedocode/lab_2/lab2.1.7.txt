@@ -1,0 +1,74 @@
+/*
+1.7 Modify the below Pseudocode to implement good programming practices. The
+below Pseudocode is used to calculate total price of a product including tax.
+BEGIN
+Print "Enter price of your product"
+Accept p
+tc=p*.56
+Print "Total price of product is": tc
+END
+Hint: .56 is the Tax rate.
+*/
+
+/*********************************************************************
+* File : lab2.1.7.txt
+* Author Name : Praseeda
+* Desc : Calculate total price of a product including tax
+* Version : 1.0
+* Last Modified Date : 3-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE price AS REAL
+	DECLARE totalPrice AS REAL
+	DECLARE CONSTANT TAX_RATE = 0.56 AS REAL
+	price = acceptPrice(price)
+	totalPrice = calcTotal(price, TAX_RATE)
+	displayTotal(totalPrice)
+END
+
+
+/*********************************************************************
+* Module Name : acceptPrice()
+* Input Parameters : price
+* Return Type : INTEGER
+* Author : Praseeda
+* Creation Date : 4-Nov-2017
+* Description : Accepts the price of product
+*********************************************************************/		
+
+SUB acceptPrice()
+	PROMPT "Enter price of your Product" 
+	AND STORE IN price
+	RETURN price
+END SUB
+
+
+/*********************************************************************
+* Module Name : calcTotal()
+* Input Parameters : price, TAX_RATE
+* Return Type : INTEGER
+* Author : Praseeda
+* Creation Date : 3-Nov-2017
+* Description : Calculates the total price
+*********************************************************************/		
+
+SUB calcTotal(price, TAX_RATE)	
+	CALCULATE totalPrice = price * TAX_RATE
+	RETURN totalPrice
+END SUB
+
+/*********************************************************************
+* Module Name : displayTotal()
+* Input Parameters : totalPrice
+* Return Type : VOID
+* Author : Praseeda
+* Creation Date : 3-Nov-2017
+* Description : Display the total price of product
+*********************************************************************/		
+
+SUB displayTotal(totalPrice)
+	PRINT "Total price of product is: " +totalPrice
+END SUB
+	

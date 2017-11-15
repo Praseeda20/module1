@@ -1,0 +1,90 @@
+/*
+3.5 Write a module in pseudo code with 2 parameters: first parameter is a word, the
+second is a character. The function must return the number of times the character is
+found in the word.
+*/
+
+/*********************************************************************
+* File : lab3.5.txt
+* Author Name : Praseeda
+* Desc : find how many times the character appears in a string
+* Version : 1.0
+* Last Modified Date : 4-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE strng AS STRING
+	DECLARE charctr AS CHARACTER
+	DECLARE numOfChar AS INTEGER
+	DECLARE count AS INTEGER
+		and INITIALIZE TO 0
+	strng = acptString()
+	charctr = acptChar()
+	searchChar(charctr, strng)
+	displayResult(strng, charctr, count)
+END
+
+/*********************************************************************
+* Module Name : acptString()
+* Input Parameters : strng
+* Return Type : STRING
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Accepts the String 
+*********************************************************************/	
+	
+SUB acptString(strng)
+	PROMPT "Enter the String:" AND STORE IN strng
+	RETURN strng
+END SUB
+
+
+/*********************************************************************
+* Module Name : acptChar()
+* Input Parameters : charctr
+* Return Type : CHARACTER
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Accepts the charcter
+*********************************************************************/	
+
+SUB acptChar(charctr)
+	PROMPT "Enter the word:" AND STORE IN charctr
+	RETURN charctr
+END SUB
+
+
+/*********************************************************************
+* Module Name : searchChar()
+* Input Parameters : charctr, strng
+* Return Type : INTEGER
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Searches the character in the String and counts it.
+*********************************************************************/	
+
+SUB searchChar(charctr, strng)
+	FOR index 0 TO strng.length-1
+		IF(charctr == strng.charAt(index))
+			count=count+1
+		END IF
+	END FOR
+	RETURN count
+END SUB
+
+/*********************************************************************
+* Module Name : dispEmpLeaves()
+* Input Parameters : Employee, TotalLeaves
+* Return Type : VOID
+* Author : Capgemini
+* Creation Date : 4-Nov-2017
+* Description : Displays the total leaves based on employee id
+*********************************************************************/	
+//Displays the result
+SUB displayResult(strng, charctr, count)
+	PRINT "Number of character: "+charctr
+	PRINT "in the given String: "+strng
+	PRINT "is: "+count
+END SUB
+	 

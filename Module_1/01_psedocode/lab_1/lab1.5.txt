@@ -1,0 +1,42 @@
+/*
+1.5 Write a pseudo code to convert a binary number to decimal. For an Example, if the
+given input is 00000100(binary number), then the output should be 4(Decimal
+number).
+*/
+
+/*********************************************************************
+* File : lab1.5.txt
+* Author Name : Praseeda
+* Desc : Convert a binary number to decimal
+* Version : 1.0
+* Last Modified Date : 2-Nov-2017
+* Change Description  :Description about the changes implemented
+*********************************************************************/
+
+BEGIN
+	DECLARE binNum AS INTEGER
+	DECLARE decNum AS INTEGER
+	DECLARE rem AS INTEGER
+	DECLARE base AS INTEGER
+	
+	//Initialize the values
+	INITIALIZE decNum TO 0
+	INITIALIZE base TO 1
+	
+	//Accept the binary number
+	PROMPT "Enter the Binary Number" 
+		AND STORE IN binNum
+		
+	//calculates the decimal value
+	WHILE(binNum!=0)
+		rem = binNum % 10
+		decNum = decNum + rem * base
+		base = base * 2
+		binNum = binNum / 10
+	END WHILE
+	
+	//display the decimal value for the given binary number
+	PRINT "The Decimal value for the binary number: " +binNum
+	PRINT "is: " +decNum
+END
+	
